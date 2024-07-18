@@ -255,12 +255,44 @@ if st.button('Predecir'):
     predictions = preprocess_and_predict(new_data_df, model, scaler, categorical_cols, X_train.columns)
     st.write(f'Predicción de las bajas en la partida: {predictions[0]:.2f}')
 
+st.markdown(
+"""
+    <style>
+    .stSelectbox div[data-baseweb="select"] > div, .stNumberInput div[data-baseweb="input"] > div {
+        background-color: #e38718;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        color: white;
+        border-radius: 5px;
+    }
+    .stSelectbox div[data-baseweb="select"] > div > div, .stNumberInput div[data-baseweb="input"] > div > div {
+        padding: 10px;
+    }
+    .stSelectbox div[data-baseweb="select"] > div > div > div, .stNumberInput div[data-baseweb="input"] > div > div > div {
+        border-radius: 5px;
+    }
+    .stNumberInput input {
+        color: white;  /* Color del texto dentro del input */
+    }
+    .stButton button {
+        background-color: #e38718;
+        color: white;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .stButton button:hover, .stButton button:focus {
+        background-color: #d97706;
+        color: white;  /* Color del texto cuando el cursor está sobre el botón */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+) 
+
 # Aplicar el estilo CSS específico para selectbox y number_input
 st.markdown(
     """
     <style>
     .stSelectbox div[data-baseweb="select"], .stNumberInput div[data-baseweb="input"] {
-        width: 180px;  /* Ajusta el ancho según sea necesario */
+        width: 180px; 
     }
     </style>
     """,
@@ -273,6 +305,7 @@ st.markdown(
     <style>
     .st-emotion-cache-13ln4jf {
         max-width: none;
+        background-color: #C3C3C3;
     }
     </style>
     """,

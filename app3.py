@@ -169,12 +169,30 @@ if uploaded_file is not None:
             st.write("Resultados de las predicciones:")
             st.write(new_data[['Ganará o Perderá', 'Probabilidad']])
 
+st.markdown(
+"""
+    <style>
+    .stButton button {
+        background-color: #e38718;
+        color: white;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .stButton button:hover, .stButton button:focus {
+        background-color: #d97706;
+        color: white;  /* Color del texto cuando el cursor está sobre el botón */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+) 
+
 # Dejar todos los componentes para ocupar todo el espacio de la página
 st.markdown(
     """
     <style>
     .st-emotion-cache-13ln4jf {
         max-width: none;
+        background-color: #C3C3C3;
     }
     </style>
     """,

@@ -147,12 +147,32 @@ with col2:
         plt.tight_layout()
         st.pyplot(fig_pie)
         
+st.markdown(
+    """
+    <style>
+    .stSelectbox div[data-baseweb="select"] > div {
+        background-color: #e38718;
+        color: white;
+        border-radius: 5px;
+    }
+    .stSelectbox div[data-baseweb="select"] > div > div {
+        padding: 10px;
+    }
+    .stSelectbox div[data-baseweb="select"] > div > div > div {
+        border-radius: 5px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+) 
+
 # Dejar todos los componentes para ocupar todo el espacio de la página
 st.markdown(
     """
     <style>
     .st-emotion-cache-13ln4jf {
         max-width: none;
+        background-color: #C3C3C3;
     }
     </style>
     """,
