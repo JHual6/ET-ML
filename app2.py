@@ -253,7 +253,7 @@ new_data_df = pd.DataFrame(new_data_input, index=[0])
 if st.button('Predecir'):
     model, scaler = load_model_and_scaler('best_rf_model.pkl', 'scaler.pkl')
     predictions = preprocess_and_predict(new_data_df, model, scaler, categorical_cols, X_train.columns)
-    st.write(f'Predicción de MatchKills: {predictions[0]:.2f}')
+    st.write(f'Predicción de las bajas en la partida: {predictions[0]:.2f}')
 
 # Aplicar el estilo CSS específico para selectbox y number_input
 st.markdown(

@@ -73,8 +73,6 @@ st.title('Predicción de Victoria de la partida utilizando Gradient Boosting Cla
 # Precisión del modelo 
 st.write(f"Precisión del modelo: {accuracy_gbc * 100:.2f}%")
 
-
-
 # Inicializar la variable de estado de sesión
 if 'show_chart1' not in st.session_state:
     st.session_state.show_chart1 = False
@@ -161,13 +159,15 @@ if uploaded_file is not None:
         predictions = best_gbc_model.predict(new_data_scaled)
         prediction_probs = best_gbc_model.predict_proba(new_data_scaled)[:, 1]
         
+        # Convertir predicciones a "Ganará" o "Perderá"
+        new_data['Ganará o Perderá'] = predictions
+        new_data['Ganará o Perderá'] = new_data['Ganará o Perderá'].map({0: 'Perderá', 1: 'Ganará'})
+        new_data['Probabilidad'] = prediction_probs
+        
         # Mostrar los resultados en la columna de resultados
         with result_col:
-            new_data['Predicted MatchWinner'] = predictions
-            new_data['Probability of Winning'] = prediction_probs
-            
             st.write("Resultados de las predicciones:")
-            st.write(new_data[['Predicted MatchWinner', 'Probability of Winning']])
+            st.write(new_data[['Ganará o Perderá', 'Probabilidad']])
 
 # Dejar todos los componentes para ocupar todo el espacio de la página
 st.markdown(
